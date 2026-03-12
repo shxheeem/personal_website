@@ -1,63 +1,223 @@
+/* ===== Fonts ===== */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @font-face {
     font-family: SF_Pro_Medium;
     src: url(Website_Fonts/SF-Pro-Rounded-Medium.otf);
-  }
-  
+}
 @font-face {
     font-family: SF_Pro_Regular;
     src: url(Website_Fonts/SF-Pro-Rounded-Regular.otf);
 }
-
-@font-face {
-    font-family: Bradley_hand;
-    src: url(Website_Fonts/Bradley_Hand.ttf);
-}
-
 @font-face {
     font-family: SF_Pro_Light;
     src: url(Website_Fonts/SF-Pro-Rounded-Light.otf);
 }
-
-
-.theme {
-    background-color: rgb(226, 219, 207);
-    color: #000000;
+@font-face {
+    font-family: Pixel_Font;
+    src: url(Website_Fonts/PixelifySans-VariableFont_wght.ttf);
 }
 
+/* ===== Design Tokens ===== */
+:root {
+    --bg: #000000;
+    --bg-raised: #0A0A0A;
+    --bg-card: #111111;
+    --bg-card-hover: #161616;
+    --text: #FFFFFF;
+    --text-dim: #888888;
+    --text-muted: #555555;
+    --accent: #4AF2C8;
+    --accent-secondary: #2D7FF9;
+    --accent-glow: rgba(74, 242, 200, 0.08);
+    --accent-glow-strong: rgba(74, 242, 200, 0.2);
+    --border: #1A1A1A;
+    --border-hover: #2A2A2A;
+    --radius: 12px;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-body: 'Inter', SF_Pro_Light, -apple-system, sans-serif;
+}
 
-.main-nav ul {
-    font-family: SF_Pro_Light;
-    display: flex;
-    justify-content: center; /* makes sure content is in center */
-    align-items: center;
+/* ===== Reset ===== */
+*, *::before, *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    list-style: none;
-    height: 100px;
+}
 
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===== Body ===== */
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+/* Subtle noise texture overlay */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+body > header {
+    z-index: 1000;
+}
+
+/* Ambient glow that follows scroll */
+body::after {
+    content: "";
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        ellipse at 30% 20%,
+        rgba(74, 242, 200, 0.03) 0%,
+        transparent 50%
+    ),
+    radial-gradient(
+        ellipse at 70% 80%,
+        rgba(45, 127, 249, 0.02) 0%,
+        transparent 50%
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ===== Navigation ===== */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--border);
+}
+
+.main-nav ul {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    height: 56px;
+    gap: 0.5rem;
+}
+
+.main-nav li {
+    list-style: none;
 }
 
 .main-nav a {
-    color: #897F7F;
+    color: var(--text-dim);
     text-decoration: none;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    position: relative;
 }
 
-.main-nav a:hover {
-    color: #000000;
-    transition: 0.2s ease-in;
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--text);
+}
 
-} 
+.main-nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 16px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 1px;
+    transition: transform 0.25s ease;
+}
 
+.main-nav a:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
 
+/* ===== Scroll Animations ===== */
+[data-animate] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
+[data-animate].visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger children */
+[data-animate-children] > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-animate-children].visible > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== Selection ===== */
+::selection {
+    background-color: var(--accent);
+    color: var(--bg);
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--border-hover);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+/* ===== Utilities ===== */
 .max-w-\[500px\] {
     max-width: 650px;
-}
-
-mx-auto {
-    margin-left: auto;
-    margin-right: auto;
 }
 
 @media (min-width: 768px) {
@@ -78,4 +238,19 @@ mx-auto {
     flex-shrink: 0;
 }
 
-
+/* ===== Cursor Glow ===== */
+.cursor-glow {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(74, 242, 200, 0.06) 0%,
+        transparent 70%
+    );
+    pointer-events: none;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+}

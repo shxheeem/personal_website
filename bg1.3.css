@@ -1,53 +1,83 @@
-.heading-content-1 {
-    font-family: Pixel_Font;
-    color: grey;
-    font-size: 2rem;
+/* Blog 1 - Challenges (active) */
+.heading-content-1,
+.heading-content-2 {
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 300;
     text-align: center;
-
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
 }
 
-
-.heading-content-2 {
-    font-family: Pixel_Font;
-    color: grey;
-    font-size: 2rem;
-    text-align: center;
+.heading-content-1:hover,
+.heading-content-2:hover {
+    color: var(--text-dim);
 }
 
 .heading-content-3 {
-    font-family: Pixel_Font;
-    font-size: 2rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
     text-align: center;
+    color: var(--text);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 10px;
+}
 
+.heading-content-3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 1px;
+    box-shadow: 0 0 8px var(--accent-glow-strong);
 }
 
 .width-fit {
-    font-family: Pixel_Font;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
     display: flex;
     justify-content: space-between;
-    max-width: 750px;
-    padding: 27px;
-   
+    gap: 12px;
+    max-width: 720px;
+    padding: 0;
+    margin-top: 20px;
 }
 
 .next-row {
     text-decoration: none;
-    border-radius: 0.5rem;
-    background-color: #1D1D1D;
-    color: #FFFFFF;
-    padding: 1rem;
-    gap: .75rem;
-    z-index: 0;
-    transition: 0.2s all;   
+    border-radius: 8px;
+    background: var(--bg-card);
+    color: var(--text-dim);
+    padding: 0.65rem 1.2rem;
+    border: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.next-row:hover{
-    z-index: 1; 
-    box-shadow: 0 8px 50px rgba(0,0,0,0.2);
-    transform: scale(1.05);
-   }
+.next-row:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 25px var(--accent-glow);
+    transform: translateY(-2px);
+}
 
-   .link {
-    color: black;
+.link {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.25s ease;
+}
 
+.link:hover {
+    border-bottom-color: var(--accent);
 }

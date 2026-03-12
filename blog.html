@@ -3,46 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <link href="projects.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
     <title>Blogs | Shaheem</title>
 </head>
-<body class="theme">
-    <header> 
+<body>
+    <header>
         <nav class="main-nav">
             <ul>
-                <li> <a href="./">About</a></li>
-                <li> <a href="./blog">Blogs</a></li>
+                <li><a href="./">About</a></li>
+                <li><a href="./blog">Blogs</a></li>
             </ul>
         </nav>
-    </header>    
+    </header>
     <div class="total-container">
-        <div class="flexbox-container">
-            <div class=" flexbox-card card-container-1 mb-5">
-               <div class="card-text">
-                    <a class="fancy-link" href="./problem"> &lt;p&gt; Transforming windmill O&M strategy &lt;/p&gt; </a> 
-               </div>
-            </div>
-            <div class=" flexbox-card card-container-2">
+        <div class="flexbox-container" data-animate-children>
+            <div class="flexbox-card card-container-1" data-card-number="01">
                 <div class="card-text">
-                    <p> &lt;p&gt; Loading... &lt;/p&gt; </p> 
-               </div>
+                    <a class="fancy-link" href="./problem">&lt;p&gt; Transforming windmill O&M strategy &lt;/p&gt;</a>
+                </div>
             </div>
-        </div> 
-        <div class="flexbox-container-2">
-            <div class=" flexbox-card card-container-3 mb-5">
+            <div class="flexbox-card card-container-2" data-card-number="02">
                 <div class="card-text">
-                    <p> &lt;p&gt; Loading... &lt;/p&gt; </p> 
-               </div>
-            </div>
-            <div class=" flexbox-card card-container-4">
-                <div class="card-text">
-                    <p> &lt;p&gt; Loading... &lt;/p&gt; </p> 
-               </div>
+                    <p>&lt;p&gt; Loading... &lt;/p&gt;</p>
+                </div>
             </div>
         </div>
-   </div>
- 
+        <div class="flexbox-container-2" data-animate-children>
+            <div class="flexbox-card card-container-3" data-card-number="03">
+                <div class="card-text">
+                    <p>&lt;p&gt; Loading... &lt;/p&gt;</p>
+                </div>
+            </div>
+            <div class="flexbox-card card-container-4" data-card-number="04">
+                <div class="card-text">
+                    <p>&lt;p&gt; Loading... &lt;/p&gt;</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="about.js"></script>
 </body>
 </html>

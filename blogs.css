@@ -1,53 +1,94 @@
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-@font-face {
-    font-family: SF_Pro_Regular;
-    src: url(Website_Fonts/SF-Pro-Rounded-Regular.otf);
-}
-
-@font-face {
-    font-family: Bradley_hand;
-    src: url(Website_Fonts/Bradley_Hand.ttf);
-}
-
-@font-face {
-    font-family: SF_Pro_Light;
-    src: url(Website_Fonts/SF-Pro-Rounded-Light.otf);
-}
-
-@font-face {
-    font-family: Pixel_Font;
-    src: url(Website_Fonts/PixelifySans-VariableFont_wght.ttf);
-}
-
+/* ===== Blog Post Layout ===== */
 .total-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin:auto;
-    max-width: 750px;
-    margin-top: 50px;
-    margin-bottom: 100px;
-
+    margin: auto;
+    max-width: 720px;
+    margin-top: 120px;
+    margin-bottom: 120px;
+    padding: 0 24px;
 }
 
-
+/* ===== Section Navigation ===== */
 .main-heading {
-    justify-content: space-around;
-}
-
-
-.blog-title {
-    font-family: SF_Pro_Regular;
-}
-
-.content {
-    font-size: 1.2rem;
-    font-family: SF_Pro_Light ;
-    padding: 30px;
     justify-content: center;
+    gap: 2rem;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+}
+
+.main-heading a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.main-heading a:hover {
+    color: var(--accent);
+}
+
+/* ===== Blog Content ===== */
+.content {
+    font-size: 1rem;
+    font-family: var(--font-body);
+    font-weight: 300;
+    padding: 0;
+    line-height: 1.9;
+    color: var(--text-dim);
+}
+
+.content p {
+    color: var(--text-dim);
+}
+
+.content h4 {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+}
+
+.content ul {
+    color: var(--text-dim);
+    padding-left: 0;
+    margin-bottom: 16px;
+    list-style: none;
+    position: relative;
+    padding-left: 20px;
+    font-size: 0.95rem;
+}
+
+.content ul::before {
+    content: ">";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+
+.link {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.25s ease;
+}
+
+.link:hover {
+    border-bottom-color: var(--accent);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .total-container {
+        margin-top: 80px;
+        padding: 0 20px;
+    }
+
+    .main-heading {
+        gap: 1rem;
+    }
 }
