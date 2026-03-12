@@ -81,3 +81,20 @@
 .link:hover {
     border-bottom-color: var(--accent);
 }
+
+@media (max-width: 480px) {
+    .heading-content-1,
+    .heading-content-2,
+    .heading-content-3 {
+        font-size: 0.65rem;
+    }
+
+    .next-row {
+        font-size: 0.7rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .width-fit {
+        gap: 8px;
+    }
+}

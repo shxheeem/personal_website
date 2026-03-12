@@ -92,3 +92,23 @@
         gap: 1rem;
     }
 }
+
+@media (max-width: 480px) {
+    .total-container {
+        margin-top: 72px;
+        padding: 0 16px;
+        margin-bottom: 80px;
+    }
+
+    .main-heading {
+        gap: 0.6rem;
+        padding-bottom: 16px;
+        margin-bottom: 24px;
+    }
+
+    .content {
+        font-size: 0.9rem;
+        padding: 0;
+        line-height: 1.75;
+    }
+}

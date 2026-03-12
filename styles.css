@@ -254,3 +254,16 @@ body::after {
     transform: translate(-50%, -50%);
     transition: opacity 0.3s ease;
 }
+
+/* ===== Responsive - Mobile Nav ===== */
+@media (max-width: 480px) {
+    .main-nav ul {
+        font-size: 0.75rem;
+        height: 48px;
+        gap: 0.25rem;
+    }
+
+    .main-nav a {
+        padding: 0.4rem 0.75rem;
+    }
+}
