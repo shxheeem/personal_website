@@ -3,53 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blogs | Shaheem</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
-    <link href="blogs.css" rel="stylesheet">
-    <link href="bg1.3.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+    <meta name="description" content="The trade-offs of a drone-led approach to windmill O&M — and the companies already moving in that direction.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blogs.css">
+    <title>Challenges &mdash; Transforming windmill O&amp;M strategy</title>
 </head>
 <body>
-    <header>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="./">About</a></li>
-                <li><a href="./blog">Blogs</a></li>
-            </ul>
-        </nav>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <nav>
+                <ul class="site-nav">
+                    <li><a href="./">About</a></li>
+                    <li><a href="./blog" class="is-active">Writing</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <div class="total-container">
-        <div class="row main-heading mb-4" data-animate>
-            <h3 class="col-auto heading-content-1"><a href="./problem">Problem</a></h3>
-            <h3 class="col-auto heading-content-2"><a href="./utopia">Utopia</a></h3>
-            <h3 class="col-auto heading-content-3"><a href="./challenges">Challenges</a></h3>
-        </div>
 
-        <div class="content" data-animate>
-            <p class="mb-4">
-                But again, there is never a perfect solution. The main challenge as of today for such a solution is the maintenance of a vast drone system across the windfarm. Flying drones in high-wind conditions (ideal locations for windmills unfortunately) inherently comes with risks of drone failure. Implementing such a system off-shore would also require deeper research into how sea conditions such as sea mist might affect drone hardware.
-            </p>
+    <main class="shell post-shell">
+        <a class="post-back" href="./blog" data-reveal>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+            Back to writing
+        </a>
 
-            <p class="mb-4">
-                I have also personally found it challenging to gather windmill blade data off the internet. Most such data is protected as commercial IP or just not available in a digitised format. And so training a reliable image detection system might require close collaborations with industry leaders and OEM's in the windmill manufacturing and energy space in order to access such datasets.
-            </p>
+        <article>
+            <header class="post-header" data-reveal>
+                <p class="post-eyebrow">Essay &middot; 3 parts</p>
+                <h1 class="post-title-hero">Transforming windmill O&amp;M strategy.</h1>
+                <div class="post-meta-hero">
+                    <span>2025</span>
+                    <span class="post-meta-dot" aria-hidden="true"></span>
+                    <span>5 min read</span>
+                    <span class="post-meta-dot" aria-hidden="true"></span>
+                    <span>A series</span>
+                </div>
+            </header>
 
-            <p class="mb-4">
-                But regardless, I've found companies on track to develop and implement very similar solutions, notably, the Lilypad project by <a class="link" href="https://marshallgroup.com/en/news-stories/lilypad-a-logical-progression-in-uncrewed-aviation">Marshall Aerospace</a>. They have been successful in securing key partners for developing both the drone hardware capability and also the software requirements to build such a project. There is also currently a company, Sulzer Schmid, based in Switzerland who has successfully implemented similar solutions for on-shore based systems. If you're interested in learning how new companies fare in such markets, these companies are definitely worth a look.
-            </p>
+            <ul class="post-parts" data-reveal>
+                <li><a class="post-part" href="./problem">
+                    <span class="post-part-num">01</span>
+                    <span class="post-part-name">Problem</span>
+                </a></li>
+                <li><a class="post-part" href="./utopia">
+                    <span class="post-part-num">02</span>
+                    <span class="post-part-name">Utopia</span>
+                </a></li>
+                <li><a class="post-part is-active" href="./challenges">
+                    <span class="post-part-num">03</span>
+                    <span class="post-part-name">Challenges</span>
+                </a></li>
+            </ul>
 
-            <p class="mb-4">
-                That said, I hope you now get an idea of the wind energy market and the challenges we face maintaining such a massive infrastructure. If you'd like to speak to me about my research into this and learn more about what I found please feel free to get in touch.
-            </p>
-        </div>
+            <div class="prose" data-reveal>
+                <p>But again, there is never a perfect solution. The main challenge as of today for such a solution is the maintenance of a vast drone system across the windfarm. Flying drones in high-wind conditions (ideal locations for windmills unfortunately) inherently comes with risks of drone failure. Implementing such a system off-shore would also require deeper research into how sea conditions such as sea mist might affect drone hardware.</p>
 
-        <div class="width-fit mb-4" data-animate>
-            <a class="next-row" href="./utopia">&larr;</a>
-        </div>
-    </div>
+                <p>I have also personally found it challenging to gather windmill blade data off the internet. Most such data is protected as commercial IP or just not available in a digitised format. And so training a reliable image detection system might require close collaborations with industry leaders and OEM's in the windmill manufacturing and energy space in order to access such datasets.</p>
+
+                <p>But regardless, I've found companies on track to develop and implement very similar solutions, notably, the Lilypad project by <a href="https://marshallgroup.com/en/news-stories/lilypad-a-logical-progression-in-uncrewed-aviation" target="_blank" rel="noopener noreferrer">Marshall Aerospace</a>. They have been successful in securing key partners for developing both the drone hardware capability and also the software requirements to build such a project. There is also currently a company, Sulzer Schmid, based in Switzerland who has successfully implemented similar solutions for on-shore based systems. If you're interested in learning how new companies fare in such markets, these companies are definitely worth a look.</p>
+
+                <p>That said, I hope you now get an idea of the wind energy market and the challenges we face maintaining such a massive infrastructure. If you'd like to speak to me about my research into this and learn more about what I found please feel free to <a href="mailto:shaheem2602@gmail.com">get in touch</a>.</p>
+            </div>
+
+            <nav class="post-nav-foot" data-reveal>
+                <a class="post-nav-link post-nav-prev" href="./utopia">
+                    <span class="post-nav-label">&larr; Previous</span>
+                    <span class="post-nav-title">02 &middot; Utopia</span>
+                </a>
+            </nav>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 &nbsp;Shaheem</p>
+        <span class="footer-meta">Last updated &middot; May 2026</span>
+    </footer>
 
     <script src="about.js"></script>
 </body>

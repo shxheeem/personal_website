@@ -3,49 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
-    <link href="projects.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
-    <title>Blogs | Shaheem</title>
+    <meta name="description" content="Writing by Shaheem — occasional notes on engineering, business, and the spaces in between.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="projects.css">
+    <title>Writing &mdash; Shaheem</title>
 </head>
 <body>
-    <header>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="./">About</a></li>
-                <li><a href="./blog">Blogs</a></li>
-            </ul>
-        </nav>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <nav>
+                <ul class="site-nav">
+                    <li><a href="./">About</a></li>
+                    <li><a href="./blog" class="is-active">Writing</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <div class="total-container">
-        <div class="flexbox-container" data-animate-children>
-            <div class="flexbox-card card-container-1" data-card-number="01">
-                <div class="card-text">
-                    <a class="fancy-link" href="./problem">&lt;p&gt; Transforming windmill O&M strategy &lt;/p&gt;</a>
-                </div>
-            </div>
-            <div class="flexbox-card card-container-2" data-card-number="02">
-                <div class="card-text">
-                    <p>&lt;p&gt; Loading... &lt;/p&gt;</p>
-                </div>
-            </div>
-        </div>
-        <div class="flexbox-container-2" data-animate-children>
-            <div class="flexbox-card card-container-3" data-card-number="03">
-                <div class="card-text">
-                    <p>&lt;p&gt; Loading... &lt;/p&gt;</p>
-                </div>
-            </div>
-            <div class="flexbox-card card-container-4" data-card-number="04">
-                <div class="card-text">
-                    <p>&lt;p&gt; Loading... &lt;/p&gt;</p>
-                </div>
-            </div>
-        </div>
-    </div>
+
+    <main class="shell">
+        <section class="writing-intro" data-reveal>
+            <p class="writing-eyebrow">Writing</p>
+            <h1 class="writing-title">Notes &amp; essays.</h1>
+            <p class="writing-lede">A quiet corner of the internet to think out loud &mdash; notes on my work and occasional essays.</p>
+        </section>
+
+        <ul class="post-list" data-reveal>
+            <li class="post-row">
+                <a class="post-link" href="./problem">
+                    <span class="post-main">
+                        <span class="post-meta-top">
+                            <span class="post-index">01</span>
+                            <span class="post-meta-dot" aria-hidden="true"></span>
+                            <span>2025</span>
+                            <span class="post-meta-dot" aria-hidden="true"></span>
+                            <span>5 min read</span>
+                        </span>
+                        <span class="post-title">Transforming windmill O&amp;M strategy</span>
+                        <span class="post-desc">A close look at the operations and maintenance side of wind energy &mdash; the bottlenecks, the players, and where the next wave of innovation could land.</span>
+                    </span>
+                    <span class="post-arrow" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+                    </span>
+                </a>
+            </li>
+        </ul>
+
+        <p class="writing-foot">More on the way</p>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 &nbsp;Shaheem</p>
+        <span class="footer-meta">Last updated &middot; May 2026</span>
+    </footer>
 
     <script src="about.js"></script>
 </body>
