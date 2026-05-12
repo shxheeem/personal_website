@@ -3,74 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blogs | Shaheem</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
-    <link href="blogs.css" rel="stylesheet">
-    <link href="bg1.2.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+    <meta name="description" content="Imagining a SCADA-led, drone-based future for windmill operations and maintenance.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blogs.css">
+    <title>Utopia &mdash; Transforming windmill O&amp;M strategy</title>
 </head>
 <body>
-    <header>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="./">About</a></li>
-                <li><a href="./blog">Blogs</a></li>
-            </ul>
-        </nav>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <nav>
+                <ul class="site-nav">
+                    <li><a href="./">About</a></li>
+                    <li><a href="./blog" class="is-active">Writing</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <div class="total-container">
-        <div class="row main-heading mb-4" data-animate>
-            <h3 class="col-auto heading-content-1"><a href="./problem">Problem</a></h3>
-            <h3 class="col-auto heading-content-2"><a href="./utopia">Utopia</a></h3>
-            <h3 class="col-auto heading-content-3"><a href="./challenges">Challenges</a></h3>
-        </div>
 
-        <div class="content" data-animate>
-            <p class="row mb-4">
-                Now that we've briefly spoken about the main challenges revolving around the current windmill O&M strategy.
-                Let's take a step back and take a closer look at some of the underlying issues and how we can fix them.
-            </p>
+    <main class="shell post-shell">
+        <a class="post-back" href="./blog" data-reveal>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+            Back to writing
+        </a>
 
-            <p class="row mb-4">
-                Firstly, speeding up inspection sounds sensible.
-                Reducing opportunity cost caused by windmill downtime would greatly help bring the price of windmill energy down and consequently drive up its competitiveness.
-                Secondly, enabling grid operators to see windmill blade health data real time at any time would be ideal, and so we would be looking at technologies that would allow us to do exactly this.
-                And finally, reducing inspection personnel risk is of the highest priority and is partly why current inspection methods are so costly and time-consuming.
-                So any future solutions would only make sense if it increases safety and reduces risk.
-            </p>
+        <article>
+            <header class="post-header" data-reveal>
+                <p class="post-eyebrow">Essay &middot; 3 parts</p>
+                <h1 class="post-title-hero">Transforming windmill O&amp;M strategy.</h1>
+                <div class="post-meta-hero">
+                    <span>2025</span>
+                    <span class="post-meta-dot" aria-hidden="true"></span>
+                    <span>5 min read</span>
+                    <span class="post-meta-dot" aria-hidden="true"></span>
+                    <span>A series</span>
+                </div>
+            </header>
 
-            <p class="row mb-4">
-                I've spent about four weeks at the DFB taking a deeper look at the problem and possible solutions.
-                After the first couple of weeks, I was convinced that the best solution would be to develop a Supervisory control and data acquisition (SCADA) system involving autonomous drones stationed at windmill farms that would provide wind farm operators with constant eyes in the sky.
-                These drones would carry out autonomous inspections along a predetermined flight path around the wind farm at regular intervals, collecting data and processing them real time.
-                This would ensure a steady availability of the digitalised wind turbine data and limit the health and safety risk of carrying out manual rope inspections on windmill turbines.
-                Such a solution would decrease opportunity cost, digitise windmill blade health data and provide real time data to wind farm operators all while greatly limiting personnel safety risks.
-            </p>
+            <ul class="post-parts" data-reveal>
+                <li><a class="post-part" href="./problem">
+                    <span class="post-part-num">01</span>
+                    <span class="post-part-name">Problem</span>
+                </a></li>
+                <li><a class="post-part is-active" href="./utopia">
+                    <span class="post-part-num">02</span>
+                    <span class="post-part-name">Utopia</span>
+                </a></li>
+                <li><a class="post-part" href="./challenges">
+                    <span class="post-part-num">03</span>
+                    <span class="post-part-name">Challenges</span>
+                </a></li>
+            </ul>
 
-            <p class="row mb-4">
-                Installing SCADA systems such as these as soon as possible would help us acquire constant and reliable data about the structural health of wind turbines that can be used to train algorithms in the future capable of predicting when turbine maintenance needs to be scheduled.
-                This in turn would greatly reduce the cost of unscheduled maintenance on wind turbines and decrease long-term failures which, like I've mentioned, is imperative for the growth of wind energy.
-            </p>
+            <div class="prose" data-reveal>
+                <p>Now that we've briefly spoken about the main challenges revolving around the current windmill O&amp;M strategy. Let's take a step back and take a closer look at some of the underlying issues and how we can fix them.</p>
 
-            <div class="row mb-3">
-                <h4 class="mb-4">Proposed Technical Implementation &mdash;</h4>
+                <p>Firstly, speeding up inspection sounds sensible. Reducing opportunity cost caused by windmill downtime would greatly help bring the price of windmill energy down and consequently drive up its competitiveness. Secondly, enabling grid operators to see windmill blade health data real time at any time would be ideal, and so we would be looking at technologies that would allow us to do exactly this. And finally, reducing inspection personnel risk is of the highest priority and is partly why current inspection methods are so costly and time-consuming. So any future solutions would only make sense if it increases safety and reduces risk.</p>
 
-                <ul>Drone system capable of flying around predetermined flight paths with a payload capable of taking high resolution pictures of turbines. &mdash; DJI M30 and its docking system.</ul>
+                <p>I've spent about four weeks at the DFB taking a deeper look at the problem and possible solutions. After the first couple of weeks, I was convinced that the best solution would be to develop a Supervisory control and data acquisition (SCADA) system involving autonomous drones stationed at windmill farms that would provide wind farm operators with constant eyes in the sky. These drones would carry out autonomous inspections along a predetermined flight path around the wind farm at regular intervals, collecting data and processing them real time. This would ensure a steady availability of the digitalised wind turbine data and limit the health and safety risk of carrying out manual rope inspections on windmill turbines. Such a solution would decrease opportunity cost, digitise windmill blade health data and provide real time data to wind farm operators all while greatly limiting personnel safety risks.</p>
 
-                <ul>Convolution Neural Network (CNN) based image detection system packaged in the cloud capable of receiving and processing the images in real time.</ul>
+                <p>Installing SCADA systems such as these as soon as possible would help us acquire constant and reliable data about the structural health of wind turbines that can be used to train algorithms in the future capable of predicting when turbine maintenance needs to be scheduled. This in turn would greatly reduce the cost of unscheduled maintenance on wind turbines and decrease long-term failures which, like I've mentioned, is imperative for the growth of wind energy.</p>
 
-                <ul>Cloud based platform that enables grid operators to view the raw data collected and provides them with powerful analytical tools to make meaningful conclusions with the data presented.</ul>
+                <h2>Proposed technical implementation</h2>
+
+                <ul>
+                    <li>Drone system capable of flying around predetermined flight paths with a payload capable of taking high resolution pictures of turbines &mdash; DJI M30 and its docking system.</li>
+                    <li>Convolution Neural Network (CNN) based image detection system packaged in the cloud capable of receiving and processing the images in real time.</li>
+                    <li>Cloud based platform that enables grid operators to view the raw data collected and provides them with powerful analytical tools to make meaningful conclusions with the data presented.</li>
+                </ul>
             </div>
-        </div>
 
-        <div class="width-fit mb-4" data-animate>
-            <a class="next-row" href="./problem">&larr;</a>
-            <a class="next-row" href="./challenges">Continue &#8594;</a>
-        </div>
-    </div>
+            <nav class="post-nav-foot" data-reveal>
+                <a class="post-nav-link post-nav-prev" href="./problem">
+                    <span class="post-nav-label">&larr; Previous</span>
+                    <span class="post-nav-title">01 &middot; Problem</span>
+                </a>
+                <a class="post-nav-link post-nav-next" href="./challenges">
+                    <span class="post-nav-label">Next &rarr;</span>
+                    <span class="post-nav-title">03 &middot; Challenges</span>
+                </a>
+            </nav>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 &nbsp;Shaheem</p>
+        <span class="footer-meta">Last updated &middot; May 2026</span>
+    </footer>
 
     <script src="about.js"></script>
 </body>

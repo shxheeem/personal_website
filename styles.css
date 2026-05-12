@@ -1,44 +1,30 @@
 /* ===== Fonts ===== */
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
-
-@font-face {
-    font-family: SF_Pro_Medium;
-    src: url(Website_Fonts/SF-Pro-Rounded-Medium.otf);
-}
-@font-face {
-    font-family: SF_Pro_Regular;
-    src: url(Website_Fonts/SF-Pro-Rounded-Regular.otf);
-}
-@font-face {
-    font-family: SF_Pro_Light;
-    src: url(Website_Fonts/SF-Pro-Rounded-Light.otf);
-}
-@font-face {
-    font-family: Pixel_Font;
-    src: url(Website_Fonts/PixelifySans-VariableFont_wght.ttf);
-}
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap');
 
 /* ===== Design Tokens ===== */
 :root {
     --bg: #000000;
-    --bg-raised: #0A0A0A;
-    --bg-card: #111111;
-    --bg-card-hover: #161616;
-    --text: #FFFFFF;
-    --text-dim: #888888;
-    --text-muted: #555555;
-    --accent: #4AF2C8;
-    --accent-secondary: #2D7FF9;
-    --accent-glow: rgba(74, 242, 200, 0.08);
-    --accent-glow-strong: rgba(74, 242, 200, 0.2);
-    --border: #1A1A1A;
-    --border-hover: #2A2A2A;
-    --radius: 12px;
-    --font-mono: 'JetBrains Mono', monospace;
-    --font-body: 'Inter', SF_Pro_Light, -apple-system, sans-serif;
+    --bg-elev: #0a0a0a;
+    --text: #ffffff;
+    --text-95: rgba(255, 255, 255, 0.95);
+    --text-85: rgba(255, 255, 255, 0.85);
+    --text-65: rgba(255, 255, 255, 0.62);
+    --text-45: rgba(255, 255, 255, 0.42);
+    --text-30: rgba(255, 255, 255, 0.26);
+    --text-15: rgba(255, 255, 255, 0.14);
+    --rule: rgba(255, 255, 255, 0.07);
+    --rule-strong: rgba(255, 255, 255, 0.14);
+    --surface: rgba(255, 255, 255, 0.025);
+    --surface-hover: rgba(255, 255, 255, 0.05);
+
+    --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-meta: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    --measure: 640px;
+    --radius: 14px;
+    --radius-sm: 10px;
 }
 
-/* ===== Reset ===== */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -49,221 +35,165 @@ html {
     scroll-behavior: smooth;
 }
 
-/* ===== Body ===== */
 body {
     background-color: var(--bg);
-    color: var(--text);
-    font-family: var(--font-body);
-    font-weight: 300;
-    line-height: 1.7;
+    color: var(--text-85);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 15.5px;
+    line-height: 1.62;
+    letter-spacing: -0.005em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    text-rendering: optimizeLegibility;
 }
 
-/* Subtle noise texture overlay */
+/* Ambient depth — very faint white radials */
 body::before {
     content: "";
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-    background-repeat: repeat;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 90% 60% at 50% -10%, rgba(255, 255, 255, 0.045), transparent 60%),
+        radial-gradient(ellipse 60% 40% at 100% 110%, rgba(255, 255, 255, 0.022), transparent 65%);
     pointer-events: none;
     z-index: 0;
 }
 
-body > * {
-    position: relative;
-    z-index: 1;
-}
-
-body > header {
-    z-index: 1000;
-}
-
-/* Ambient glow that follows scroll */
+/* Subtle grain texture for craft */
 body::after {
     content: "";
     position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(
-        ellipse at 30% 20%,
-        rgba(74, 242, 200, 0.03) 0%,
-        transparent 50%
-    ),
-    radial-gradient(
-        ellipse at 70% 80%,
-        rgba(45, 127, 249, 0.02) 0%,
-        transparent 50%
-    );
+    inset: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 0;
+    mix-blend-mode: overlay;
 }
 
-/* ===== Navigation ===== */
-.main-nav {
+body > * { position: relative; z-index: 1; }
+body > header { z-index: 100; }
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+::selection {
+    background: rgba(255, 255, 255, 0.18);
+    color: var(--text);
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.08); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.18); }
+
+/* ===== Header ===== */
+.site-header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border-bottom: 1px solid var(--rule);
 }
 
-.main-nav ul {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    font-weight: 400;
-    letter-spacing: 0.05em;
+.site-header-inner {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 16px 24px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    list-style: none;
-    height: 56px;
-    gap: 0.5rem;
+    justify-content: flex-end;
 }
 
-.main-nav li {
-    list-style: none;
-}
-
-.main-nav a {
-    color: var(--text-dim);
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    transition: all 0.25s ease;
-    position: relative;
-}
-
-.main-nav a:hover,
-.main-nav a.active {
-    color: var(--text);
-}
-
-.main-nav a::after {
-    content: "";
-    position: absolute;
-    bottom: 2px;
-    left: 50%;
-    transform: translateX(-50%) scaleX(0);
-    width: 16px;
-    height: 2px;
-    background: var(--accent);
-    border-radius: 1px;
-    transition: transform 0.25s ease;
-}
-
-.main-nav a:hover::after {
-    transform: translateX(-50%) scaleX(1);
-}
-
-/* ===== Scroll Animations ===== */
-[data-animate] {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-[data-animate].visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Stagger children */
-[data-animate-children] > * {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-[data-animate-children].visible > * {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ===== Selection ===== */
-::selection {
-    background-color: var(--accent);
-    color: var(--bg);
-}
-
-/* ===== Scrollbar ===== */
-::-webkit-scrollbar {
-    width: 6px;
-}
-::-webkit-scrollbar-track {
-    background: var(--bg);
-}
-::-webkit-scrollbar-thumb {
-    background: var(--border-hover);
-    border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: var(--text-muted);
-}
-
-/* ===== Utilities ===== */
-.max-w-\[500px\] {
-    max-width: 650px;
-}
-
-@media (min-width: 768px) {
-    .md\:gap-20 {
-        gap: 6rem;
-    }
-}
-
-.flex-col {
-    flex-direction: column;
-}
-
-.flex {
+.site-nav {
     display: flex;
+    gap: 6px;
+    list-style: none;
 }
 
-.shrink-0 {
-    flex-shrink: 0;
+.site-nav a {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.86rem;
+    color: var(--text-65);
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: color 0.22s ease, background 0.22s ease;
+    letter-spacing: -0.005em;
 }
 
-/* ===== Cursor Glow ===== */
-.cursor-glow {
-    position: fixed;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(
-        circle,
-        rgba(74, 242, 200, 0.06) 0%,
-        transparent 70%
-    );
-    pointer-events: none;
-    z-index: 0;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.3s ease;
+.site-nav a:hover {
+    color: var(--text);
+    background: var(--surface);
 }
 
-/* ===== Responsive - Mobile Nav ===== */
-@media (max-width: 480px) {
-    .main-nav ul {
-        font-size: 0.75rem;
-        height: 48px;
-        gap: 0.25rem;
-    }
+.site-nav a.is-active {
+    color: var(--text);
+    background: var(--surface);
+}
 
-    .main-nav a {
-        padding: 0.4rem 0.75rem;
-    }
+/* ===== Layout shell ===== */
+.shell {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 130px 24px 80px;
+}
+
+/* ===== Reveal on scroll ===== */
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== Footer ===== */
+.site-footer {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.site-footer p,
+.site-footer span {
+    font-family: var(--font-meta);
+    font-size: 0.74rem;
+    font-weight: 400;
+    color: var(--text-45);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.site-footer .footer-meta {
+    color: var(--text-30);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    body { font-size: 15px; }
+    .shell { padding: 100px 22px 60px; }
+    .site-header-inner { padding: 14px 22px; }
+    .site-nav { gap: 2px; }
+    .site-nav a { font-size: 0.8125rem; padding: 5px 10px; }
+    .site-footer { padding: 32px 22px 48px; }
+    .site-footer p, .site-footer span { font-size: 0.7rem; }
 }
